@@ -36,7 +36,7 @@ var geocoder = new google.maps.Geocoder();
                 
             });
             google.maps.event.addListener(FirstLayer, 'click', function(e) {
-	e.infoWindowHtml = "<strong>" + e.row['Business_Name'].value + "</strong>" + "<br>" + e.row['Full_address'].value + "<br>" + "<a href=' " + e.row['Records_URL'].value + "'>" + "Records</a>";
+	e.infoWindowHtml = "<strong>" + e.row['Business_Name'].value + "</strong>" + "<br>" + e.row['Full_address'].value + "<br>" + "<a href=' " + e.row['Records_URL'].value + "' target='_blank'>" + "View records</a> <br>";
 	
 	
             });
@@ -51,7 +51,7 @@ var geocoder = new google.maps.Geocoder();
             }, function(results, status) {
                 if (status == google.maps.GeocoderStatus.OK) {
                     map.setCenter(results[0].geometry.location);
-                    map.setZoom(10);
+                    map.setZoom(13);
                 } else {
                     window.alert('Address could not be geocoded: ' + status);
                 }
@@ -96,7 +96,7 @@ var geocoder = new google.maps.Geocoder();
 </head>
 
 <body>
-    <div id="map-canvas" style="height:640px; width:500px;"></div>
+    <div id="map-canvas" style="height:640px; width:640px;"></div>
     <div>
         <label>Enter an address:</label>
         <input type="text" id="address" value="San Francisco">
